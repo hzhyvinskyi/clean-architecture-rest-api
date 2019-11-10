@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"github.com/hzhyvinskyi/clean-architecture-rest-api/internal/app/infrastructure/router"
 	"log"
 	"net/http"
 	"os"
@@ -17,7 +18,14 @@ func Start(addr string) {
 
 	signal.Notify(quit, os.Interrupt)
 
-	server := &http.Server{}
+	server := &http.Server{
+		Addr:         addr,
+		Handler:      router.New(),
+		ErrorLog:     logger,
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 15 * time.Second,
+		IdleTimeout:  20 * time.Second,
+	}
 
 	go gracefulShutdown(server, logger, quit, done)
 
