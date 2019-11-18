@@ -1,13 +1,16 @@
 package interfaces
 
 import (
-	"github.com/hzhyvinskyi/clean-architecture-rest-api/internal/app/usecases"
 	"log"
 	"net/http"
 )
 
+type ArticleInteractor interface {
+	FindAll() (string, error)
+}
+
 type ArticleController struct {
-	ArticleInteractor usecases.ArticleInteractor
+	ArticleInteractor ArticleInteractor
 }
 
 func (ac *ArticleController) FindAll(w http.ResponseWriter, r *http.Request) {

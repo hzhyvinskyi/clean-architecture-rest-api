@@ -2,7 +2,7 @@ package usecases
 
 import "log"
 
-type ArticleInteractor interface {
+type ArticleRepository interface {
 	FindAll() (string, error)
 }
 
