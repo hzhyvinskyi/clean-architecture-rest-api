@@ -1,9 +1,11 @@
 package usecases
 
-import "log"
+import (
+	"github.com/hzhyvinskyi/clean-architecture-rest-api/internal/app/domain"
+)
 
 type ArticleRepository interface {
-	FindAll() (string, error)
+	FindAll() ([]*domain.Article, error)
 }
 
 type articleInteractor struct {
@@ -14,10 +16,10 @@ func NewArticleInteractor(ar ArticleRepository) *articleInteractor {
 	return &articleInteractor{articleRepository: ar}
 }
 
-func (ai *articleInteractor) FindAll() (string, error) {
+func (ai *articleInteractor) FindAll() ([]*domain.Article, error) {
 	articles, err := ai.articleRepository.FindAll()
 	if err != nil {
-		log.Fatalln(err)
+		return nil, err
 	}
 	return articles, nil
 }

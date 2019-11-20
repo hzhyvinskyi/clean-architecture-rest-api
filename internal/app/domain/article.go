@@ -7,7 +7,7 @@ type Article struct {
 	Description string `json:"description"`
 	ImageURL    string `json:"image_url"`
 	Likes       int    `json:"likes"`
-	Status      uint8  `json:"status"`
+	Status      string `json:"status"`
 	CreatedAt   string `json:"created_at"`
 	UpdatedAt   string `json:"updated_at"`
 }

@@ -1,0 +1,3 @@
+INSERT INTO articles (user_id, title, description, image_url) VALUES ('5d5acb9e-8fba-433f-a05b-fd3654e21f8b', 'POST #1', 'DESC TEXT TEXT TEXT', 'link_link_link');
+INSERT INTO articles (user_id, title, description, image_url) VALUES ('5d5acb9e-8fba-433f-a05b-fd3654e21f8b', 'POST #2', 'DESC TEXT TEXT TEXT', 'link_link_link');
+INSERT INTO articles (user_id, title, description, image_url) VALUES ('5d5acb9e-8fba-433f-a05b-fd3654e21f8b', 'POST #3', 'DESC TEXT TEXT TEXT', 'link_link_link');

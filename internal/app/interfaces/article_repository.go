@@ -23,7 +23,7 @@ func (ar *articleRepository) FindAll() ([]*domain.Article, error) {
 	articles := make([]*domain.Article, 0)
 	for rows.Next() {
 		article := new(domain.Article)
-		err := rows.Scan(&article.ArticleID, &article.UserID, &article.Title, &article.Title, &article.Description, &article.ImageURL, &article.Likes, &article.CreatedAt)
+		err := rows.Scan(&article.ArticleID, &article.UserID, &article.Title, &article.Description, &article.ImageURL, &article.Likes, &article.Status, &article.CreatedAt, &article.UpdatedAt)
 		if err != nil {
 			return nil, err
 		}

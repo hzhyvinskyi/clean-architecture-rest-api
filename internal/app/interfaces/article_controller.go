@@ -1,12 +1,14 @@
 package interfaces
 
 import (
+	"encoding/json"
+	"github.com/hzhyvinskyi/clean-architecture-rest-api/internal/app/domain"
 	"log"
 	"net/http"
 )
 
 type ArticleInteractor interface {
-	FindAll() (string, error)
+	FindAll() ([]*domain.Article, error)
 }
 
 type ArticleController struct {
@@ -18,7 +20,8 @@ func (ac *ArticleController) FindAll(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if _, err := w.Write([]byte(articles)); err != nil {
+
+	if err = json.NewEncoder(w).Encode(articles); err != nil {
 		log.Fatalln(err)
 	}
 }
