@@ -31,4 +31,5 @@ func init() {
 
 func mapUrls() {
 	router.HandleFunc("/articles", articleController.FindAll).Methods("GET")
+	router.HandleFunc("/articles/{uuid}", articleController.Find).Methods("GET")
 }
